@@ -1,0 +1,21 @@
+<h1>Listing whiteboards</h1>
+
+<table>
+  <tr>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @whiteboards.each do |whiteboard| %>
+  <tr>
+    <td><%= link_to 'Show', whiteboard %></td>
+    <td><%= link_to 'Edit', edit_whiteboard_path(whiteboard) %></td>
+    <td><%= link_to 'Destroy', whiteboard, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Whiteboard', new_whiteboard_path %>
