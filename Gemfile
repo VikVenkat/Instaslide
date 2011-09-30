@@ -8,6 +8,9 @@ gem 'rails', '3.0.7'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
+# Amazon Mechanical Turk
+gem 'rturk'
+
 gem 'sqlite3'
 gem 'httparty'
 gem 'paperclip'
