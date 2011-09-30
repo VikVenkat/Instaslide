@@ -1,6 +1,8 @@
 <h1>Editing whiteboard</h1>
 
 <%= render 'form' %>
-
+<% form_for :whiteboard, @whiteboard, :url => whiteboards_path, :html => { :multipart => true } do |form| %>
+  <%= form.file_field :pic %>
+<% end %>
 <%= link_to 'Show', @whiteboard %> |
 <%= link_to 'Back', whiteboards_path %>

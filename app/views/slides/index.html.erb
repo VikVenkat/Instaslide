@@ -2,16 +2,24 @@
 
 <table>
   <tr>
+	<th>ID</th>
+    <th>File Name</th>
+	<th>URL</th>
+  
     <th></th>
     <th></th>
     <th></th>
   </tr>
 
-<% @slides.each do |slide| %>
+<% @slides.each do |s| %>
   <tr>
-    <td><%= link_to 'Show', slide %></td>
-    <td><%= link_to 'Edit', edit_slide_path(slide) %></td>
-    <td><%= link_to 'Destroy', slide, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%= s.id %></td>
+	<td><%= s.pic_file_name %></td>
+	<td><%= s.name %></td>
+  
+    <td><%= link_to 'Show', s %></td>
+    <td><%= link_to 'Edit', edit_slide_path(s) %></td>
+    <td><%= link_to 'Destroy', s, :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>
 </table>
@@ -19,3 +27,7 @@
 <br />
 
 <%= link_to 'New Slide', new_slide_path %>
+</br>
+<%= link_to ('Slides', slides_path)  %>
+<%= link_to ('Whiteboards', whiteboards_path)  %>
+<%= link_to ('Home', root_path)  %>

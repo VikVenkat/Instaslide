@@ -2,16 +2,23 @@
 
 <table>
   <tr>
+	<th>ID</th>
+    <th>File Name</th>
+	<th>URL</th>
+  
     <th></th>
     <th></th>
     <th></th>
   </tr>
 
-<% @whiteboards.each do |whiteboard| %>
+<% @whiteboards.each do |w| %>
   <tr>
-    <td><%= link_to 'Show', whiteboard %></td>
-    <td><%= link_to 'Edit', edit_whiteboard_path(whiteboard) %></td>
-    <td><%= link_to 'Destroy', whiteboard, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%= w.id %></td>
+	<td><%= w.pic_file_name %></td>
+	<td><%= w.name %></td>
+    <td><%= link_to 'Show', w %></td>
+    <td><%= link_to 'Edit', edit_whiteboard_path(w) %></td>
+    <td><%= link_to 'Destroy', w, :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>
 </table>
@@ -19,3 +26,8 @@
 <br />
 
 <%= link_to 'New Whiteboard', new_whiteboard_path %>
+</br>
+<%= link_to ('Slides', slides_path)  %>
+<%= link_to ('Whiteboards', whiteboards_path)  %>
+<%= link_to ('Home', root_path)  %>
+

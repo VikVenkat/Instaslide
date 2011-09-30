@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110930043153) do
+ActiveRecord::Schema.define(:version => 20110930045350) do
 
   create_table "slides", :force => true do |t|
     t.datetime "created_at"
@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(:version => 20110930043153) do
     t.integer  "doc_file_size"
     t.datetime "doc_updated_at"
     t.integer  "user_id"
+    t.string   "name"
   end
 
   create_table "users", :force => true do |t|
@@ -48,6 +49,7 @@ ActiveRecord::Schema.define(:version => 20110930043153) do
     t.integer  "pic_file_size"
     t.datetime "pic_updated_at"
     t.integer  "user_id"
+    t.string   "name"
   end
 
 end

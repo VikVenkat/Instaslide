@@ -1,6 +1,9 @@
 <h1>Editing slide</h1>
 
 <%= render 'form' %>
+<% form_for :slide, @slide, :url => slides_path, :html => { :multipart => true } do |form| %>
+  <%= form.file_field :doc %>
+<% end %>
 
 <%= link_to 'Show', @slide %> |
 <%= link_to 'Back', slides_path %>
