@@ -1,4 +1,27 @@
 class WhiteboardsController < ApplicationController
+
+  # Use Paperclip to attach a file
+  def upload
+  end
+  
+  # Send file to Turk
+  def submit
+    RTurk.setup(AKIAJETT5WWWOMFUITCQ, h6khH304Eb/VEqs4DujJ6VfsI0kzYuUsnCXw7U+0, :sandbox => true)
+    hit = RTurk::Hit.create(:title => "Create a powerpoint slide based on a picture") do |hit|
+
+    hit.description = 'Given an image of a whiteboard diagram, extract images and diagram elements and create a quick powerpoint slide.'
+# 	not sure if this is a real thing
+    hit.keywords = 'image, slide, powerpoint, whiteboard, text, diagram'
+
+#    hit.question("http://myapp.com/turkers/add_tags",
+#                 :frame_height => 1000)  # pixels for iframe
+    hit.reward = 0.25
+    hit.assignments = 1
+    hit.qualifications.add :approval_rate, { :gt => 90 }
+    end
+  end
+
+
   # GET /whiteboards
   # GET /whiteboards.xml
   def index

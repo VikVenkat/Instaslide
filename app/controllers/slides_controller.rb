@@ -1,4 +1,53 @@
 class SlidesController < ApplicationController
+
+  def receive 
+  end
+  
+  def approve #and reject
+	hits = RTurk::Hit.all_reviewable
+
+	puts "#{hits.size} reviewable hits. \n"
+
+	unless hits.empty?
+	  puts "Reviewing all assignments"
+
+  # Need to edit this part to do rejections too
+	  hits.each do |hit|
+	    hit.assignments.each do |assignment|
+		puts assignment.answers['tags']
+		assignment.approve! if assignment.status == 'Submitted'
+	    end
+	  end
+	end
+  end
+  
+  
+  def clear_hits
+  
+	hits = RTurk::Hit.all_reviewable
+
+	puts "#{hits.size} reviewable hits. \n"
+
+	unless hits.empty?
+	  puts "Approving all assignments and disposing of each hit!"
+
+	  hits.each do |hit|
+	    hit.expire!
+	    hit.assignments.each do |assignment|
+		assignment.approve!
+	    end
+	    hit.dispose!
+	  end
+	end
+
+  
+  end
+  
+  
+  def apply_rating
+  end
+
+
   # GET /slides
   # GET /slides.xml
   def index
