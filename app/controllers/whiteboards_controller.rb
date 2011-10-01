@@ -9,6 +9,7 @@ class WhiteboardsController < ApplicationController
   end
   
   # Send file to Turk
+  # need to pass the current image to this guy as a parameter?
   def submit
     RTurk.setup(AKIAJETT5WWWOMFUITCQ, h6khH304Eb/VEqs4DujJ6VfsI0kzYuUsnCXw7U+0, :sandbox => true)
     hit = RTurk::Hit.create(:title => "Create a powerpoint slide based on a picture") do |hit|
@@ -17,8 +18,8 @@ class WhiteboardsController < ApplicationController
 # 	not sure if this is a real thing
     hit.keywords = 'image, slide, powerpoint, whiteboard, text, diagram'
 
-#    hit.question("http://myapp.com/turkers/add_tags",
-#                 :frame_height => 1000)  # pixels for iframe
+    hit.question(task_path,
+                 :frame_height => 1000)  # pixels for iframe
     hit.reward = 0.25
     hit.assignments = 1
     hit.qualifications.add :approval_rate, { :gt => 90 }

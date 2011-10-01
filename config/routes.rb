@@ -9,7 +9,7 @@ Instaslide::Application.routes.draw do
 
   root :to => "home#index"
   
-  get "whiteboards/convert_image_task" 
+  match "whiteboards/convert_image_task", :to => "whiteboards#convert_image_task", :as => "task"
 
   # See how all your routes lay out with "rake routes"
 
