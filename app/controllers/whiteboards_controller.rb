@@ -1,5 +1,9 @@
 class WhiteboardsController < ApplicationController
 
+  def convert_image_task
+  # just to pull up the view
+  end
+
   # Use Paperclip to attach a file
   def upload
   end
