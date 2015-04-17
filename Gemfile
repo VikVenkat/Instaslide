@@ -10,6 +10,7 @@ gem 'rails', '3.0.7'
 
 # Amazon Mechanical Turk
 gem 'rturk'
+gem 'nokogiri'
 
 gem 'sqlite3'
 gem 'httparty'

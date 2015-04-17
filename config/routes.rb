@@ -8,10 +8,9 @@ Instaslide::Application.routes.draw do
   resources :whiteboards
 
   root :to => "home#index"
+  
+  match "whiteboards/convert_image_task", :to => "whiteboards#convert_image_task", :as => "task"
 
   # See how all your routes lay out with "rake routes"
 
-  # This is a legacy wild controller route that's not recommended for RESTful applications.
-  # Note: This route will make all actions in every controller accessible via GET requests.
-  # match ':controller(/:action(/:id(.:format)))'
 end
